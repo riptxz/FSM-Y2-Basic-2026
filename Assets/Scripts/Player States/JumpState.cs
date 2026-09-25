@@ -40,6 +40,16 @@ public class JumpState : State
             sm.ChangeState(sm.runState);
         }
 
+        if (player.attackAction.IsPressed())
+        {
+            sm.ChangeState(sm.attackState);
+        }
+
+        if (player.interactAction.IsPressed())
+        {
+            sm.ChangeState(sm.idleState);
+        }
+
         UIscript.ui.DrawText("*** This is the jumping state ***\n");
         UIscript.ui.DrawText("Left/Right arrows = Move State");
         UIscript.ui.DrawText("E = Idle State");

@@ -12,7 +12,7 @@ public class StateMachine
     public IdleState idleState;
     public JumpState jumpState;
     public RunState runState;
-
+    public AttackState attackState;
 
     //constructor
     public StateMachine( PlayerScript player )
@@ -21,6 +21,7 @@ public class StateMachine
         idleState = new IdleState(player, this);
         jumpState = new JumpState(player, this);
         runState = new RunState(player, this);
+        attackState = new AttackState(player, this);
 
     }
 

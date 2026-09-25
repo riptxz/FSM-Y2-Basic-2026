@@ -50,6 +50,11 @@ public class RunState : State
             sm.ChangeState(sm.jumpState);
         }
 
+        if (player.attackAction.IsPressed())
+        {
+            sm.ChangeState(sm.attackState);
+        }
+
         //debug move gameObject
         player.rb.linearVelocity = player.moveAction.ReadValue<Vector2>() * speed;
 

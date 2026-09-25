@@ -42,6 +42,11 @@ public class IdleState : State
             sm.ChangeState(sm.jumpState);
         }
 
+        if(player.attackAction.IsPressed())
+        {
+            sm.ChangeState(sm.attackState);
+        }
+
 
         //example of running a coroutine from a state and not directly from the monobehaviour
         if (player.crouchAction.IsPressed())
