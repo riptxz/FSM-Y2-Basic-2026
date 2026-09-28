@@ -50,6 +50,11 @@ public class JumpState : State
             sm.ChangeState(sm.idleState);
         }
 
+        if (player.crouchAction.IsPressed())
+        {
+            sm.ChangeState(sm.crouchState);
+        }
+
         UIscript.ui.DrawText("*** This is the jumping state ***\n");
         UIscript.ui.DrawText("Left/Right arrows = Move State");
         UIscript.ui.DrawText("E = Idle State");

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AttackState : State
@@ -10,7 +11,7 @@ public class AttackState : State
     {
         Debug.Log("Has attacked");
 
-        player.sr.color = new Color(1f, 0.3f, 0.4f);
+        player.animator.SetBool("isAttacking", true);
     }
 
     public override void Update()  // Check to get out of the states
@@ -18,18 +19,25 @@ public class AttackState : State
         if(player.jumpAction.IsPressed())
         {
             sm.ChangeState(sm.jumpState);
+            player.animator.SetBool("isAttacking", false);
         }
 
         if (player.moveAction.IsPressed())
         {
             sm.ChangeState(sm.runState);
+            player.animator.SetBool("isAttacking", false);
         }
-        if(player.interactAction.IsPressed())
+        if (player.interactAction.IsPressed())
         {
             sm.ChangeState(sm.idleState);
+            player.animator.SetBool("isAttacking", false);
         }
 
-        
+        if (player.crouchAction.IsPressed())
+        {
+            sm.ChangeState(sm.crouchState);
+            player.animator.SetBool("isAttacking", false);
+        }
     }
 
     public override void Exit()

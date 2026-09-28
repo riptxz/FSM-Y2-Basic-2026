@@ -18,7 +18,11 @@ public class PlayerScript : MonoBehaviour
     public InputAction interactAction;
     public InputAction attackAction;
 
+    public bool isIdle;
+    public bool isMoving;
+    public bool isAttacking;
 
+    public Animator animator;
 
     private void Start()
     {

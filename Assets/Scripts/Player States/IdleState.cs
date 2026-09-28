@@ -17,7 +17,6 @@ public class IdleState : State
         // this method is called when the state begins
 
         Debug.Log("entering idle state");
-        player.sr.color = new Color(0.5f, 0.8f, 0.7f);
     }
 
     public override void Exit()
@@ -47,12 +46,17 @@ public class IdleState : State
             sm.ChangeState(sm.attackState);
         }
 
-
-        //example of running a coroutine from a state and not directly from the monobehaviour
         if (player.crouchAction.IsPressed())
         {
-            player.StartCoroutine( IdleCo() );
+            sm.ChangeState(sm.crouchState);
         }
+
+
+        //example of running a coroutine from a state and not directly from the monobehaviour
+        //if (player.crouchAction.IsPressed())
+        //{
+        //    player.StartCoroutine( IdleCo() );
+        //}
 
         UIscript.ui.DrawText("*** This is the idle state ***\n");
         UIscript.ui.DrawText("Space = Jump State");

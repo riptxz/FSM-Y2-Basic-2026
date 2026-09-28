@@ -15,13 +15,14 @@ public class RunState : State
 
     public override void Enter()
     {
+
+        player.animator.SetBool("isMoving", true);
+
         speed = 3;
         base.Enter();
         horizontalInput = verticalInput = 0.0f;
 
         Debug.Log("entering running state");
-
-        player.sr.color = new Color(0.8f, 0.8f, 0.2f);
     }
 
     public override void Exit()
@@ -36,23 +37,30 @@ public class RunState : State
 
         TestMethod("hello");
 
-        
-
         ReadInput();
 
         if (player.interactAction.IsPressed())
         {
             sm.ChangeState(sm.idleState);
+            player.animator.SetBool("isMoving", false);
         }
 
         if (player.jumpAction.IsPressed())
         {
             sm.ChangeState(sm.jumpState);
+            player.animator.SetBool("isMoving", false);
         }
 
         if (player.attackAction.IsPressed())
         {
             sm.ChangeState(sm.attackState);
+            player.animator.SetBool("isMoving", false);
+        }
+
+        if (player.crouchAction.IsPressed())
+        {
+            sm.ChangeState(sm.crouchState);
+            player.animator.SetBool("isMoving", false);
         }
 
         //debug move gameObject

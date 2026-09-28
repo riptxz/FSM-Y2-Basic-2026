@@ -13,6 +13,7 @@ public class StateMachine
     public JumpState jumpState;
     public RunState runState;
     public AttackState attackState;
+    public CrouchAttackState crouchState;
 
     //constructor
     public StateMachine( PlayerScript player )
@@ -22,6 +23,7 @@ public class StateMachine
         jumpState = new JumpState(player, this);
         runState = new RunState(player, this);
         attackState = new AttackState(player, this);
+        crouchState = new CrouchAttackState(player, this);
 
     }
 
