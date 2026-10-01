@@ -27,7 +27,7 @@ public class AttackState : State
             sm.ChangeState(sm.runState);
             player.animator.SetBool("isAttacking", false);
         }
-        if (player.interactAction.IsPressed())
+        if (!player.attackAction.IsInProgress())
         {
             sm.ChangeState(sm.idleState);
             player.animator.SetBool("isAttacking", false);

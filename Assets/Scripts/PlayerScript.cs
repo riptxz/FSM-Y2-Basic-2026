@@ -2,8 +2,10 @@
 //player.cs is the Monobehaviour and owns the Unity components
 //It passes control to the statemachine
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -21,6 +23,8 @@ public class PlayerScript : MonoBehaviour
     public bool isIdle;
     public bool isMoving;
     public bool isAttacking;
+
+    public TextMeshProUGUI hptext;
 
     public Animator animator;
 

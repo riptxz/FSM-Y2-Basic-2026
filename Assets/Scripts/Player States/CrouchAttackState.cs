@@ -27,7 +27,7 @@ public class CrouchAttackState : State
             sm.ChangeState(sm.runState);
             player.animator.SetBool("isCrouching", false);
         }
-        if (player.interactAction.IsPressed())
+        if (!player.crouchAction.IsInProgress())
         {
             sm.ChangeState(sm.idleState);
             player.animator.SetBool("isCrouching", false);

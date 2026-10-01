@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Text;
+using Unity.VisualScripting;
 
 //UIScript draws the debug text to the screen
 
@@ -61,5 +62,10 @@ public class UIscript : MonoBehaviour
     public void DrawText(string text)
     {
         sb.AppendLine(text);
+    }
+
+    public void HpDisplay()
+    {
+        
     }
 }

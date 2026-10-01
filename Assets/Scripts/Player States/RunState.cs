@@ -2,6 +2,7 @@
 //This is a derived class of State
 //This means it inherits fields and methods from State.cs
 
+using TMPro;
 using UnityEngine;
 
 public class RunState : State
@@ -39,7 +40,7 @@ public class RunState : State
 
         ReadInput();
 
-        if (player.interactAction.IsPressed())
+        if (!player.moveAction.IsInProgress())
         {
             sm.ChangeState(sm.idleState);
             player.animator.SetBool("isMoving", false);
@@ -82,7 +83,7 @@ public class RunState : State
 
         if( collision.tag == "enemy")
         {
-            collision.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+            player.hptext.text = ("1");
         }
     }
     public override void OnTriggerExit2D(Collider2D collision)
