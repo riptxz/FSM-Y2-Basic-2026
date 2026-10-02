@@ -83,7 +83,7 @@ public class RunState : State
 
         if( collision.tag == "enemy")
         {
-            player.hptext.text = ("1");
+            Debug.Log("Player is colliding with enemy");
         }
     }
     public override void OnTriggerExit2D(Collider2D collision)
@@ -92,7 +92,7 @@ public class RunState : State
 
         if (collision.tag == "enemy")
         {
-            collision.GetComponent<SpriteRenderer>().color = new Color(0.1f, 0.1f, 0.1f);
+            Debug.Log("Player has stopped colliding with enemy");
         }
     }
 

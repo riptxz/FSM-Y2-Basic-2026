@@ -24,8 +24,6 @@ public class PlayerScript : MonoBehaviour
     public bool isMoving;
     public bool isAttacking;
 
-    public TextMeshProUGUI hptext;
-
     public Animator animator;
 
     private void Start()
